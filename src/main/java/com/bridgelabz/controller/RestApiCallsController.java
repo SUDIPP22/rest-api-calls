@@ -1,6 +1,7 @@
 package com.bridgelabz.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +22,15 @@ public class RestApiCallsController {
     }
 
     @GetMapping(value = "/message2")
-    public String getMessageAsQueryParameter
+    public String getMessageUsingQueryParameter
             (@RequestParam String firstName,
              @RequestParam String lastName) {
         return "Hello From BridgeLabz : " + firstName + " " + lastName;
+    }
+
+    @GetMapping(value = "/message3/{name}")
+    public String getMessageUsingPathVariable
+            (@PathVariable String name) {
+        return "Hello : " + name + " from BridgeLabz";
     }
 }
