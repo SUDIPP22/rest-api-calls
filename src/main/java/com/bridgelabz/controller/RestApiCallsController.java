@@ -1,9 +1,7 @@
 package com.bridgelabz.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.bridgelabz.controller.dto.UserDto;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Purpose : To demonstrate the various HTTP methods with the help of REST Controller
@@ -32,5 +30,10 @@ public class RestApiCallsController {
     public String getMessageUsingPathVariable
             (@PathVariable String name) {
         return "Hello : " + name + " from BridgeLabz";
+    }
+
+    @PostMapping(value = "/message4")
+    public String getUserDetails(@RequestBody UserDto userDto) {
+        return userDto.toString();
     }
 }
