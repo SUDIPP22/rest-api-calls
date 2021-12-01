@@ -36,4 +36,12 @@ public class RestApiCallsController {
     public String getUserDetails(@RequestBody UserDto userDto) {
         return userDto.toString();
     }
+
+    @PutMapping(value = "/message5/{firstName}")
+    public String getMessageUsingPutRequest(
+            @PathVariable String firstName,
+            @RequestParam String lastName
+    ) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
 }
